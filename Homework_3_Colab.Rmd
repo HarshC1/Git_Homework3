@@ -1,0 +1,35 @@
+---
+title: "Homework 3 Test"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+
+library(rstudioapi)                  # This is a external library of functions
+library(rlang)                       # To support tidyverse dplyr library
+library(magrittr)                    # To support tidyverse dplyr library
+library(dplyr)                       # To manipulate and clean data frames
+library(class)                       # To run KNN model
+library(car)
+library(ISLR)
+library(caret)
+library(pROC)
+library(corrplot)
+library(glmnet)
+
+
+```
+
+```{r}
+load("transaction.rdata")
+```
