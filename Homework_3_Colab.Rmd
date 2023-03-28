@@ -32,4 +32,30 @@ library(glmnet)
 
 ```{r}
 load("transaction.rdata")
+
+set.seed(25)
+
+train = trans[1:540,]
+test = trans[541:740,]
+validation = trans[741:940,]
+
+tree.trans=tree(class~.,train)
+
+summary(tree.trans)
+
+plot(tree.trans)
+text(tree.trans)
+
+set.seed(25)
+cv.trans=cv.tree(tree.trans,FUN=prune.misclass)
+names(cv.trans)
+cv.trans
+
+prune.trans=prune.misclass(tree.trans,best=4)
+plot(prune.trans)
+text(prune.trans)
+
+tree.pred <- predict(prune.trans,test,type="class")
+table(tree.pred,class.test)
+mean(tree.pred==class.test)
 ```
